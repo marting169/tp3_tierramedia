@@ -14,7 +14,7 @@ import model.PromocionAXB;
 import model.PromocionAbsoluta;
 import model.PromocionPorcentual;
 
-public class PromocionDAO {
+public class PromocionDAO implements  GenericDAO<Promocion>{
 	public ArrayList<Promocion> findAll(ArrayList<Atraccion> atraccionesDisponibles) throws SQLException {
 		Connection connection = ConnectionProvider.getConnection();
 		String sql = "select * FROM promocion";

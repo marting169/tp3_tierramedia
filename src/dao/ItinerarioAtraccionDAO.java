@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import jdbc.ConnectionProvider;
 
-public class ItinerarioAtraccionDAO  implements DAO2<Integer>{
+public class ItinerarioAtraccionDAO  implements GenericDAO<Integer>{
 	public int insert(Integer id_atraccion, Integer id_usuario) throws SQLException {
 		Connection connection = ConnectionProvider.getConnection();
 		String sql = "INSERT INTO itinerario_atraccion (id_atraccion,id_usuario) VALUES (?,?)";
