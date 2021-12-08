@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import jdbc.ConnectionProvider;
 import model.Atraccion;
 
-public class AtraccionDAO implements DAO<Atraccion>{
+public class AtraccionDAO implements GenericDAO<Atraccion>{
 	public ArrayList<Atraccion> findAll() throws SQLException {
 		Connection connection = ConnectionProvider.getConnection();
 		String sql = "select * FROM atraccion";

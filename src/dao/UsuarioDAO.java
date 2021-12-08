@@ -11,7 +11,7 @@ import java.util.List;
 import jdbc.ConnectionProvider;
 import model.Usuario;
 
-public class UsuarioDAO implements DAO<Usuario>{
+public class UsuarioDAO implements GenericDAO<Usuario>{
 
 	public ArrayList<Usuario> findAll() throws SQLException {
 		Connection connection = ConnectionProvider.getConnection();
