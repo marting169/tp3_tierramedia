@@ -3,8 +3,9 @@ package jdbc;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import dao.AtraccionDAO;
-import dao.UsuarioDAO;
+import persistencia.impl.UsuarioDAOimpl;
+import persistencia.impl.AtraccionDAOimpl;
+
 
 public class Iniciar {
 
@@ -17,7 +18,8 @@ public class Iniciar {
 		input = sc.next();
 
 		if (input.equals("S") || input.equals("s")) {
-			UsuarioDAO usuarioDao = new UsuarioDAO();
+			
+			UsuarioDAOimpl usuarioDao = new UsuarioDAOimpl();
 			usuarioDao.restaurar(10.0,8.0,1);
 			usuarioDao.restaurar(100.0,5.0,2);
 			usuarioDao.restaurar(36.0,8.0,3);
@@ -25,7 +27,8 @@ public class Iniciar {
 			usuarioDao.restaurar(50.0,10.0,5);
 			usuarioDao.restaurar(15.0,7.0,6);
 			usuarioDao.restaurar(40.0,10.0,7);
-			AtraccionDAO atraccionDao = new AtraccionDAO();
+			
+			AtraccionDAOimpl atraccionDao = new AtraccionDAOimpl();
 			atraccionDao.restaurar(6,9);
 			atraccionDao.restaurar(25,10);
 			atraccionDao.restaurar(150,11);

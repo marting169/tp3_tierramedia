@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.Usuario;
 import servicios.LoginService;
 
-@WebServlet("login.jsp")
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private LoginService loginService;
@@ -31,6 +31,7 @@ public class LoginServlet extends HttpServlet {
     	Usuario user;
 		try {
 			user = loginService.login(username, password);
+			
 			if (!user.isNull()) {
 	    		req.getSession().setAttribute("user", user);
 	    		resp.sendRedirect("admin.jsp");    		
@@ -38,14 +39,15 @@ public class LoginServlet extends HttpServlet {
 	    		req.setAttribute("flash", "Nombre de usuario o password incorrectos");
 	    		
 	    		RequestDispatcher dispatcher = getServletContext()
-	      		      .getRequestDispatcher("login.jsp");
+	      		      .getRequestDispatcher("/login.jsp");
 	      		    dispatcher.forward(req, resp);
 	    	}
-			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+			
+	
     	
     	
     }

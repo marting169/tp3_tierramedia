@@ -2,13 +2,10 @@ package logica;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import java.util.List;
 import java.util.Scanner;
 
-import dao.AtraccionDAO;
-import dao.ItinerarioAtraccionDAO;
-import dao.ItinerarioPromocionDAO;
-import dao.UsuarioDAO;
+import persistencia.impl.*;
 import model.Atraccion;
 import model.Producto;
 import model.Promocion;
@@ -22,8 +19,8 @@ public class Ofertador {
 	}
 
 	@SuppressWarnings("resource")
-	public void generarOferta(ArrayList<Atraccion> atraccionesA, ArrayList<Promocion> promocionesP,
-			ArrayList<Usuario> usuariosU,ItinerarioPromocionDAO itinerarioPromocionDao,ItinerarioAtraccionDAO itinerarioAtraccionDao) throws SQLException {
+	public void generarOferta(List<Atraccion> atraccionesA, List<Promocion> promocionesP,
+			List<Usuario> usuariosU,ItinerarioPromocionDAOimpl itinerarioPromocionDao,ItinerarioAtraccionDAOimpl itinerarioAtraccionDaoimpl) throws SQLException {
 		double presupuesto = 0;
 		double tiempoDisponible = 0;
 		System.out.println("Bienvenido/a a la Tierra Media");
@@ -31,7 +28,7 @@ public class Ofertador {
 		for (Usuario usuario : usuariosU) {
 			itinerarios = new ArrayList<Producto>();
 			soloAtracciones = new ArrayList<Atraccion>();
-			UsuarioDAO usuarioDao = new UsuarioDAO();
+			UsuarioDAOimpl usuarioDao = new UsuarioDAOimpl();
 			presupuesto = usuario.getPresupuesto();
 			tiempoDisponible = usuario.getTiempo_disponible();
 			System.out.println("Nombre de visitante: " + usuario.getNombre() + "\n");
@@ -70,7 +67,7 @@ public class Ofertador {
 			for (Atraccion atraccion : atraccionesA) {
 				String input;
 				Scanner sc = new Scanner(System.in);
-				AtraccionDAO atraccionDao = new AtraccionDAO();
+				AtraccionDAOimpl atraccionDao = new AtraccionDAOimpl();
 				if (presupuesto >= atraccion.getCosto() && tiempoDisponible >= atraccion.getTiempo()
 						&& atraccion.getCupo() > 0 && !soloAtracciones.contains(atraccion)) {
 					System.out.println(atraccion.toString());
@@ -81,7 +78,7 @@ public class Ofertador {
 						if (input.equals("S") || input.equals("s")) {
 							this.itinerarios.add(atraccion);
 							this.soloAtracciones.add(atraccion);
-							itinerarioAtraccionDao.insert(atraccion.getId(),usuario.getId());
+							itinerarioAtraccionDaoimpl.insert(atraccion.getId(),usuario.getId());
 							System.out.println("Aceptada!");
 							band = true;
 							atraccion.usarUnCupo();

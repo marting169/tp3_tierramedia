@@ -1,5 +1,6 @@
-package jdbc;
+package persistencia.commons;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -8,7 +9,7 @@ public class ConnectionProvider {
 	private static Connection connection;
 	private static String url = "jdbc:sqlite:bd/tierramedia";
 
-	public static Connection getConnection() throws SQLException {
+	public static Connection getConnection() throws SQLException, ClassNotFoundException, SQLException, IOException {
 		if (connection == null) {
 			connection = DriverManager.getConnection(url);
 		}
