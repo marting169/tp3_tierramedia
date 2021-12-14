@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import jdbc.ConnectionProvider;
 
@@ -17,6 +18,30 @@ public class ItinerarioAtraccionDAO  implements GenericDAO<Integer>{
 		int rows = statement.executeUpdate();
 		return rows;
 		//prueba
+	}
+
+	@Override
+	public ArrayList<Integer> findAll() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int insert(Integer t) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int update(Integer t) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int delete(Integer t) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

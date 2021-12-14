@@ -2,6 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
+import utils.Crypt;
+
 public class Usuario {
 	private Integer id;
 	private String nombre;
@@ -9,17 +11,26 @@ public class Usuario {
 	private double tiempo_disponible;
 	private ArrayList<Producto> itinerario;
 	private ArrayList<Atraccion> soloAtracciones;
+	private String username, password;
+	private Boolean admin;
 
-	public Usuario(Integer id, String nombre, double presupuesto, double tiempo_disponible) {
+	public Usuario(Integer id, String nombre, double presupuesto, double tiempo_disponible, String username, String password, Boolean admin) {
 		this.id = id;
 		this.nombre = nombre;
 		this.setPresupuesto(presupuesto);
 		this.setTiempo_disponible(tiempo_disponible);
 		this.soloAtracciones = new ArrayList<Atraccion>();
+		this.username = username;
+		this.password = password;
+		this.admin = admin;
 	}
 
 	public double getPresupuesto() {
 		return this.presupuesto;
+	}
+	
+	public String getUsername() {
+		return username;
 	}
 
 	public Integer getId() {
@@ -70,6 +81,34 @@ public class Usuario {
 
 	public ArrayList<Atraccion> getSoloAtracciones() {
 		return soloAtracciones;
+	}
+	
+	public boolean isNull() {
+		return false;
+	}
+	
+	public Boolean isAdmin() {
+		return admin;
+	}
+	
+	public Boolean getAdmin() {
+		return admin;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setAdmin(Boolean admin) {
+		this.admin = admin;
+	}
+	
+	public void setPassword(String password) {
+		this.password = Crypt.hash(password);
+	}
+	
+	public boolean checkPassword(String password) {
+		return Crypt.match(password, this.password);
 	}
 
 	@Override

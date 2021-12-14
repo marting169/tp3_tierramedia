@@ -10,6 +10,7 @@ import java.util.List;
 
 import jdbc.ConnectionProvider;
 import model.Usuario;
+import model.nullObject.NullUser;
 
 public class UsuarioDAO implements GenericDAO<Usuario>{
 
@@ -27,7 +28,7 @@ public class UsuarioDAO implements GenericDAO<Usuario>{
 
 	private Usuario toUsuario(ResultSet result) throws SQLException {
 		return new Usuario(result.getInt("id"), result.getString("nombre"), result.getDouble("dinero"),
-				result.getDouble("tiempo"));
+				result.getDouble("tiempo"), result.getString("username"), result.getString("password"), result.getBoolean("admin"));
 	}
 
 	public List<Usuario> findById(int id) throws SQLException {
@@ -42,6 +43,23 @@ public class UsuarioDAO implements GenericDAO<Usuario>{
 			todos.add(toUsuario(result));
 		}
 		return todos;
+	}
+	
+	public Usuario findByUsername(String username) throws SQLException {
+			String sql = "SELECT * FROM USERS WHERE USERNAME = ?";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, username);
+			ResultSet resultados = statement.executeQuery();
+
+			Usuario user = NullUser.build();
+
+			if (resultados.next()) {
+				user = toUsuario(resultados);
+			}
+
+			return user;
+		
 	}
 
 	public int delete(Usuario usuario) throws SQLException {
@@ -61,7 +79,7 @@ public class UsuarioDAO implements GenericDAO<Usuario>{
 		statement.setString(1, usuario.getNombre());
 		statement.setDouble(2, usuario.getPresupuesto());
 		statement.setDouble(3, usuario.getTiempo_disponible());
-
+		
 		int rows = statement.executeUpdate();
 		return rows;
 	}
@@ -88,6 +106,12 @@ public class UsuarioDAO implements GenericDAO<Usuario>{
 		statement.setInt(3,id);
 		int rows = statement.executeUpdate();
 		return rows;
+	}
+
+	@Override
+	public int insert(Usuario t, Usuario y) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 

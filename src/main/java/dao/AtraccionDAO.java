@@ -63,4 +63,22 @@ public class AtraccionDAO implements GenericDAO<Atraccion>{
 		int rows = statement.executeUpdate();
 		return rows;
 	}
+
+	@Override
+	public int insert(Atraccion t) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int insert(Atraccion t, Atraccion y) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int delete(Atraccion t) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

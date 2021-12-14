@@ -66,6 +66,36 @@ public class PromocionDAO implements  GenericDAO<Promocion>{
 		return atracciones;
 	}
 
+	@Override
+	public ArrayList<Promocion> findAll() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int insert(Promocion t) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int insert(Promocion t, Promocion y) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int update(Promocion t) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int delete(Promocion t) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 	
 
