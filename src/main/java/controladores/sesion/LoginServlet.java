@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 			
 			if (!user.isNull()) {
 	    		req.getSession().setAttribute("user", user);
-	    		resp.sendRedirect("admin.jsp");    		
+	    		resp.sendRedirect("/admin.jsp");    		
 	       	} else {
 	    		req.setAttribute("flash", "Nombre de usuario o password incorrectos");
 	    		
