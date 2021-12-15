@@ -13,12 +13,12 @@ public abstract class Producto {
 	}
 	
 
-	public String getNombreAtraccion() {
+	public String getNombre() {
 		return nombre;
 	}
 
-	public void setNombreAtraccion(String nombreAtraccion) {
-		this.nombre = nombreAtraccion;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public double getCosto() {

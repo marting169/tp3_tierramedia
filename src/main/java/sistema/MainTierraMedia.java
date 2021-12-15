@@ -33,7 +33,7 @@
 //		PromocionDAOimpl promocionDao = new PromocionDAOimpl();
 //		List<Promocion> listaDePromociones = promocionDao.findAll(listaDeAtracciones);
 //		Collections.sort(listaDePromociones, Collections.reverseOrder(new OrdenadorPromocionXPrecio()));
-//		//System.out.println(listaDePromociones);
+//		System.out.println(listaDePromociones);
 //		
 //		
 //
@@ -44,11 +44,12 @@
 //				itinerarioAtraccionDao);
 //		System.out.println(listaDeUsuarios);
 //
-//		Iniciar iniciar=new Iniciar();
+//		Iniciar iniciar = new Iniciar();
 //		System.out.println(iniciar.reiniciar());
 //		
 //		
 //		ConnectionProvider.close();
 //	}
+//	
 //
 //}

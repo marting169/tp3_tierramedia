@@ -17,24 +17,25 @@ public class AtraccionDAOimpl implements AtraccionDAO {
 
 	public List<Atraccion> findAll() {
 		try {
-			String sql = "select * FROM atraccion";
-			Connection connection = ConnectionProvider.getConnection();
-			PreparedStatement statement = connection.prepareStatement(sql);
-			ResultSet result = statement.executeQuery();
+			Connection conn = ConnectionProvider.getConnection();
+			String sql = "SELECT * FROM atraccion";
+			PreparedStatement statement = conn.prepareStatement(sql);
+			ResultSet resultados = statement.executeQuery();
 
-			List<Atraccion> todos = new LinkedList<Atraccion>();
-			while (result.next()) {
-				todos.add(toAtraccion(result));
+			List<Atraccion> attractions = new LinkedList<Atraccion>();
+			while (resultados.next()) {
+				attractions.add(toAtraccion(resultados));
 			}
-			return todos;
+
+			return attractions;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}
 	}
 
 	private Atraccion toAtraccion(ResultSet result) throws SQLException {
-		return new Atraccion(result.getInt("id"), result.getString("nombre"), result.getDouble("costo"),
-				result.getDouble("tiempo"), result.getInt("cupo"));
+		return new Atraccion(result.getInt(1), result.getString(2), result.getDouble(3),
+				result.getDouble(4), result.getInt(5));
 	}
 
 	public ArrayList<Atraccion> findByIdPromocion(String id_prom) {
@@ -58,7 +59,7 @@ public class AtraccionDAOimpl implements AtraccionDAO {
 
 	public Atraccion find(Integer id) {
 		try {
-			String sql = "SELECT * FROM ATTRACTIONS WHERE id = ?";
+			String sql = "SELECT * FROM atraccion WHERE id = ?";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, id);
@@ -112,7 +113,7 @@ public class AtraccionDAOimpl implements AtraccionDAO {
 	@Override
 	public int delete(Atraccion attraction) {
 		try {
-			String sql = "DELETE FROM ATTRACTIONS WHERE ID = ?";
+			String sql = "DELETE FROM atraccion WHERE ID = ?";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, attraction.getId());
