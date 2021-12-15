@@ -25,6 +25,7 @@ public class AtraccionDAOimpl implements AtraccionDAO {
 			List<Atraccion> todos = new LinkedList<Atraccion>();
 			while (result.next()) {
 				todos.add(toAtraccion(result));
+				
 			}
 			return todos;
 		} catch (Exception e) {
@@ -33,8 +34,8 @@ public class AtraccionDAOimpl implements AtraccionDAO {
 	}
 
 	private Atraccion toAtraccion(ResultSet result) throws SQLException {
-		return new Atraccion(result.getInt("id"), result.getString("nombre"), result.getDouble("costo"),
-				result.getDouble("tiempo"), result.getInt("cupo"));
+		return new Atraccion(result.getInt(1), result.getString(2), result.getDouble(3),
+				result.getDouble(4), result.getInt(5));
 	}
 
 	public ArrayList<Atraccion> findByIdPromocion(String id_prom) {

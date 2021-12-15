@@ -12,7 +12,7 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import model.Usuario;
 
-@WebFilter(urlPatterns = "*.do")
+@WebFilter("*.do")
 public class FiltroLogin implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

@@ -15,7 +15,8 @@ import servicios.AtraccionService;
 
 @WebServlet("/atracciones")
 public class ListarAtraccionesServlet extends HttpServlet implements Servlet {
-	private static final long serialVersionUID = 1L;
+
+	private static final long serialVersionUID = 6712669684984113823L;
 	private AtraccionService atraccionService;
 
 	@Override
@@ -26,14 +27,24 @@ public class ListarAtraccionesServlet extends HttpServlet implements Servlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	try {
+		
 	
 			List<Atraccion> atracciones = atraccionService.list();
 			req.setAttribute("atracciones", atracciones);
 
+			
 			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/admin.jsp");
+					.getRequestDispatcher("/atracciones.jsp");
 			dispatcher.forward(req, resp);
+	}catch (Exception e){
+		resp.getWriter().append("Error"+e);
+	}
 			
 	}
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doGet(req,resp);
+	}
+
 
 }

@@ -17,7 +17,7 @@
 			<div class="card-body">
 				<h5 class="card-title">Administrar Atracciones</h5>
 				<p class="card-text">Ingrese para dar de alta, modificar, eliminar y ver el listado de las atracciones disponibles.
-				<a href="atracciones.jsp" class="btn btn-primary" target="_blank">Ir</a></p>
+				<a href="atracciones" class="btn btn-primary" >Ir</a></p>
 			</div>
 			<div class="card-body">
 				<h5 class="card-title">Administrar Promociones</h5>

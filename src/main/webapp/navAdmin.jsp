@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
@@ -11,7 +11,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link" href="atracciones.jsp" target="_blank">Atracciones</a>
+					<li class="nav-item"><a class="nav-link" href="atracciones" >Atracciones</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="promociones.jsp" target="_blank">Promociones</a>
 					</li>

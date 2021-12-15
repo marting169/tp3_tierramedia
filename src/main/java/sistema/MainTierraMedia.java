@@ -33,7 +33,7 @@ public class MainTierraMedia {
 		PromocionDAOimpl promocionDao = new PromocionDAOimpl();
 		List<Promocion> listaDePromociones = promocionDao.findAll(listaDeAtracciones);
 		Collections.sort(listaDePromociones, Collections.reverseOrder(new OrdenadorPromocionXPrecio()));
-		//System.out.println(listaDePromociones);
+		System.out.println(listaDePromociones);
 		
 		
 

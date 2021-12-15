@@ -13,7 +13,7 @@ public abstract class Producto {
 	}
 	
 
-	public String getNombreAtraccion() {
+	public String getNombre() {
 		return nombre;
 	}
 

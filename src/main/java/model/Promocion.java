@@ -42,7 +42,7 @@ public abstract class Promocion extends Producto{
 	public String getAtracciones() {
 		String respuesta = "[";
 		for (Atraccion atraccionA : atracciones) {
-			respuesta = respuesta + atraccionA.getNombreAtraccion() + ", ";
+			respuesta = respuesta + atraccionA.getNombre() + ", ";
 		}
 		respuesta = respuesta.substring(0, respuesta.length() - 2);
 		return respuesta + "]";
