@@ -1,59 +1,55 @@
-//package servicios;
-//
-//import java.util.List;
-//
-//import model.Atraccion;
-//import model.Promocion;
+
+package servicios;
+
+import java.util.List;
+
+import model.Promocion;
 //import persistencia.PromocionDAO;
-//import persistencia.commons.DAOFactory;
+import persistencia.commons.DAOFactory;
+
+public class PromocionService {
+	public List<Promocion> list() {
+		return DAOFactory.getPromocionDAO().findAll();
+	}
+
+//	public Promocion create(int id, String name, double cost, double duration, int capacity) {
 //
+//		Promocion attraction = new Promocion(id, name, cost, duration, capacity);
 //
-//public class PromocionService {
-//	
-//	public List<Promocion> list() {
-//		return DAOFactory.getPromocionDAO().findAll();
-//	}
-//	
-//	public Promocion find(Integer id) {
-//		return DAOFactory.getPromocionDAO().find(id);
-//	}
-//
-//	public Promocion create(String nombre, double costo, double tiempo, List<Atraccion> atracciones) {
-//
-//		Promocion promo = new Promocion(nombre, costo, tiempo, atracciones);
-//
-//		if (promo.esValida()) {
-//			PromocionDAO promoDAO = DAOFactory.getPromocionDAO();
-//			promoDAO.insert(promo);
+//		if (attraction.isValid()) {
+//			AtraccionDAO attractionDAO = DAOFactory.getPromocionDAO();
+//			attractionDAO.insert(attraction);
 //		}
 //
-//		return promo;
+//		return attraction;
 //	}
+
+//	public Promocion update(int id, String name, double cost, double duration, int capacity) {
 //
-//	public Promocion update(int id, String nombre, double costo, double duracion, int cupo) {
+//		PromocionDAO attractionDAO = DAOFactory.getPromocionDAO();
+//		Promocion attraction = attractionDAO.find(id);
 //
-//		PromocionDAO promoDAO = DAOFactory.getPromocionDAO();
-//		Promocion promo = promoDAO.find(id);
+//		attraction.setNombreAtraccion(name);
+//		attraction.setCosto(cost);
+//		attraction.setTiempo(duration);
+//		attraction.setCupo(capacity);
 //
-//		promo.setNombreAtraccion(nombre);
-//		promo.setCosto(costo);
-//		promo.setTiempo(duracion);
-//		promo.setCupo(cupo);
-//
-//		if (promo.esValida()) {
-//			promoDAO.update(promo);
+//		if (attraction.isValid()) {
+//			attractionDAO.update(attraction);
 //		}
 //
-//		return promo;
+//		return attraction;
 //	}
-//
+
 //	public void delete(int id) {
-//		Promocion promo = new Promocion(id, null, null, null, null);
+//		//Promocion promocion = new Promocion(id, null, null, null, null);
 //
-//		PromocionDAO promoDAO = DAOFactory.getPromocionDAO();
-//		promoDAO.delete(promo);
+//		PromocionDAO promocionDAO = DAOFactory.getPromocionDAO();
+//		promocionDAO.delete(promocion);
 //	}
-//
-//	
-//
-//}
+
+	public Promocion find(Integer id) throws Exception {
+		return DAOFactory.getPromocionDAO().find(id);
+	}
+
+}

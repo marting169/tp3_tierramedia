@@ -18,17 +18,19 @@
 			<div class="card-body">
 				<h5 class="card-title">Administrar Atracciones</h5>
 				<p class="card-text">Ingrese para dar de alta, modificar, eliminar y ver el listado de las atracciones disponibles.
-				<a href="atraccionesAdmin.jsp" class="btn btn-primary" target="_blank">Ir</a></p>
+
+				<a href="atracciones" class="btn btn-primary" >Ir</a></p>
+
 			</div>
 			<div class="card-body">
 				<h5 class="card-title">Administrar Promociones</h5>
 				<p class="card-text">Ingrese para dar de alta, modificar, eliminar y ver el listado de las promociones disponibles.
-				<a href="promocionesAdmin.jsp" class="btn btn-primary" target="_blank">Ir</a></p>
+				<a href="promocionesAdmin" class="btn btn-primary" target="_blank">Ir</a></p>
 			</div>
 			<div class="card-body">
 				<h5 class="card-title">Administrar Usuarios</h5>
 				<p class="card-text">Ingrese para dar de alta, modificar, eliminar y ver el listado de los usuarios disponibles.
-				<a href="usuariosAdmin.jsp" class="btn btn-primary" target="_blank">Ir</a></p>
+				<a href="usuariosAdmin" class="btn btn-primary" target="_blank">Ir</a></p>
 			</div>
 			
 		</div>
