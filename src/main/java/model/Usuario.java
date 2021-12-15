@@ -1,20 +1,24 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import utils.Crypt;
 
 public class Usuario {
 	private Integer id;
 	private String nombre;
-	private double presupuesto;
-	private double tiempo_disponible;
+	private Double presupuesto;
+	private Double tiempo_disponible;
 	private ArrayList<Producto> itinerario;
 	private ArrayList<Atraccion> soloAtracciones;
 	private String username, password;
 	private Boolean admin;
+	private HashMap<String, String> errors;
 
-	public Usuario(Integer id, String nombre, double presupuesto, double tiempo_disponible, String username, String password, Boolean admin) {
+	public Usuario(Integer id, String nombre, Double presupuesto, Double tiempo_disponible, String username, String password, 
+			Boolean admin) {
 		this.id = id;
 		this.nombre = nombre;
 		this.setPresupuesto(presupuesto);
@@ -24,8 +28,17 @@ public class Usuario {
 		this.password = password;
 		this.admin = admin;
 	}
+	
 
-	public double getPresupuesto() {
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public Double getPresupuesto() {
 		return this.presupuesto;
 	}
 	
@@ -41,7 +54,7 @@ public class Usuario {
 		this.id = id;
 	}
 
-	public void setPresupuesto(double presupuesto) {
+	public void setPresupuesto(Double presupuesto) {
 		if (presupuesto >= 0) {
 			this.presupuesto = presupuesto;
 		} else {
@@ -49,11 +62,11 @@ public class Usuario {
 		}
 	}
 
-	public double getTiempo_disponible() {
+	public Double getTiempo_disponible() {
 		return this.tiempo_disponible;
 	}
 
-	public void setTiempo_disponible(double tiempo_disponible) {
+	public void setTiempo_disponible(Double tiempo_disponible) {
 		if (tiempo_disponible >= 0) {
 			this.tiempo_disponible = tiempo_disponible;
 		} else {
@@ -119,6 +132,53 @@ public class Usuario {
 
 	public void setSoloAtracciones(ArrayList<Atraccion> soloAtracciones) {
 		this.soloAtracciones = soloAtracciones;
+	}
+	
+	public void agregarAlItinerario(Atraccion attraction) {
+		this.presupuesto -= attraction.getCosto();
+		this.tiempo_disponible -= attraction.getTiempo();
+	}
+	
+	public void agregarPromoAlItinerario(Promocion promo) {
+		this.presupuesto -= promo.getCosto();
+		this.tiempo_disponible -= promo.getTiempo();
+	}
+
+	public boolean puedePagar(Atraccion attraction) {
+		return attraction.getCosto() <= this.presupuesto;
+	}
+
+	public boolean tieneTiempo(Atraccion attraction) {
+		return attraction.getTiempo() <= this.tiempo_disponible;
+	}
+	
+	public boolean puedePagarPromo(Promocion promo) {
+		return promo.getCosto() <= this.presupuesto;
+	}
+
+	public boolean tieneTiempoPromo(Promocion promo) {
+		return promo.getTiempo() <= this.tiempo_disponible;
+	}
+	
+
+	public boolean esValido() {
+		validar();
+		return errors.isEmpty();
+	}
+	
+	public void validar() {
+		errors = new HashMap<String, String>();
+
+		if (presupuesto < 0) {
+			errors.put("coins", "No debe ser negativo");
+		}
+		if (tiempo_disponible < 0) {
+			errors.put("time", "No debe ser negativo");
+		}
+	}
+	
+	public Map<String, String> getErrors() {
+		return errors;
 	}
 
 }

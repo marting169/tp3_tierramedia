@@ -5,11 +5,11 @@
 <html>
 
 <head>
-<jsp:include page="headAdmin.jsp"></jsp:include>
+<jsp:include page="/partes/headAdmin.jsp"></jsp:include>
 </head>
 
 <body>
-	<jsp:include page="navAdmin.jsp"></jsp:include>
+	<jsp:include page="/partes/navAdmin.jsp"></jsp:include>
 
 	<div class="container-fluid">
 

@@ -101,11 +101,14 @@ public class UsuarioDAOimpl implements UsuarioDAO{
 		try {
 			Connection connection = ConnectionProvider.getConnection();
 			
-			String sql = "INSERT INTO usuario (nombre,dinero, tiempo) VALUES (?,?,?)";
+			String sql = "INSERT INTO usuario (nombre,dinero,tiempo,username,password,admin) VALUES (?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, usuario.getNombre());
 			statement.setDouble(2, usuario.getPresupuesto());
 			statement.setDouble(3, usuario.getTiempo_disponible());
+			statement.setString(4, usuario.getUsername());
+			statement.setString(5, usuario.getPassword());
+			statement.setBoolean(6, usuario.getAdmin());
 			
 			int rows = statement.executeUpdate();
 			return rows;

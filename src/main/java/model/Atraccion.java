@@ -10,6 +10,11 @@ public class Atraccion extends Producto {
 	private Map<String, String> errors;
 	
 	
+	public Atraccion(String nombre, Double costo, Double tiempo, Integer cupo) {
+		super(nombre, costo, tiempo);
+		this.cupo = cupo;
+	}
+	
 	public Atraccion(Integer id, String nombre, Double costo, Double tiempo, Integer cupo) {
 		super(nombre, costo, tiempo);
 		this.cupo = cupo;

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="headAdmin.jsp"></jsp:include>
+<jsp:include page="/partes/headAdmin.jsp"></jsp:include>
 </head>
 <body background="https://sm.ign.com/ign_latam/news/a/amazons-th/amazons-the-lord-of-the-ring-series-will-premiere-in-2022-pl_nanh.jpg">
 	<div class="col-lg-5 mx-auto p-3 py-md-5">
