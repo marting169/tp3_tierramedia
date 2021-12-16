@@ -20,6 +20,16 @@ public class Atraccion extends Producto {
 		this.cupo = cupo;
 		this.id = id;
 	}
+	
+	
+
+	public void setCupo(Integer cupo) {
+		this.cupo = cupo;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public Integer getCupo() {
 		return cupo;

@@ -39,9 +39,8 @@
 			</thead>
 			<tbody>
 				<c:forEach items="${atracciones}" var="atraccion">
-					<tr>					
-						
-						<td><c:out value="${atraccion.nombre}"></c:out></td>
+					<tr>
+						<td><strong><c:out value="${atraccion.nombre}"></c:out></strong></td>
 						<td><c:out value="${atraccion.costo}"></c:out></td>
 						<td><c:out value="${atraccion.tiempo}"></c:out></td>
 						<td><c:out value="${atraccion.cupo}"></c:out></td>
