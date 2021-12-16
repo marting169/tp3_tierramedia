@@ -35,7 +35,7 @@ public class UsuarioDAOimpl implements UsuarioDAO{
 
 	private Usuario toUsuario(ResultSet result) throws SQLException {
 		return new Usuario(result.getInt("id"), result.getString("nombre"), result.getDouble("dinero"),
-				result.getDouble("tiempo"), result.getString("password"), result.getString("rol"));
+				result.getDouble("tiempo"), result.getString("password"), result.getString("role"));
 	}
 
 	public Usuario find(Integer id) {

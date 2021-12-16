@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class ConnectionProvider {
 
 	private static Connection connection;
-	private static String url = "jdbc:sqlite:/home/martin/Proyectos/eclipse/tp3_tierramedia/tierramedia.db";
+	private static String url = "jdbc:sqlite:/home/martin/Proyectos/eclipse/tp3_tierramedia/tierramedia";
 
 	public static Connection getConnection() throws SQLException, ClassNotFoundException, SQLException, IOException {
 

@@ -30,9 +30,9 @@
 					<th>Usuario</th>
 					<th>Presupuesto</th>
 					<th>Tiempo disponible</th>
-					<th>Username</th>
 					<th>Password</th>
-					<th>Es admin?</th>
+					<th>Rol de usuario</th>
+					<th>Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -41,9 +41,8 @@
 						<td><strong><c:out value="${user.nombre}"></c:out></strong></td>
 						<td><c:out value="${user.presupuesto}"></c:out></td>
 						<td><c:out value="${user.tiempo_disponible}"></c:out></td>
-						<td><c:out value="${user.username}"></c:out></td>
 						<td><c:out value="${user.password}"></c:out></td>
-						<td><c:out value="${user.admin}"></c:out></td>
+						<td><c:out value="${user.rol}"></c:out></td>
 
 						<td>
 								<a href="#"
