@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 bin
 /target
 /target/
+=======
+/target/
+target/
+target
+bin
+>>>>>>> evebranch
 .settings
