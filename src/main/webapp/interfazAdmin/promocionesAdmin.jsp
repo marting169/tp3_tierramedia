@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -34,7 +34,7 @@
 					<th>Promoci&oacute;n</th>
 					<th>Costo</th>
 					<th>Duraci&oacute;n</th>
-					<th>Cupo</th>
+					<th>Atacciones Incluidas</th>
 					<th>Acciones</th>
 				</tr>
 			</thead>
@@ -45,7 +45,8 @@
 						<td><c:out value="${promocion.nombre}"></c:out></td>
 						<td><c:out value="${promocion.costo}"></c:out></td>
 						<td><c:out value="${promocion.tiempo}"></c:out></td>
-						<td><c:out value="${promocion.cupo}"></c:out></td>
+						
+						<td><c:out value="${promocion.atracciones}"></c:out></td>
 
 						<td><a href="#" class="btn btn-light rounded-0" role="button">
 								<i class="bi bi-pencil-fill"></i>

@@ -35,7 +35,7 @@ public class UsuarioDAOimpl implements UsuarioDAO{
 
 	private Usuario toUsuario(ResultSet result) throws SQLException {
 		return new Usuario(result.getInt("id"), result.getString("nombre"), result.getDouble("dinero"),
-				result.getDouble("tiempo"), result.getString("username"), result.getString("password"), result.getBoolean("admin"));
+				result.getDouble("tiempo"), result.getString("password"), result.getString("rol"));
 	}
 
 	public Usuario find(Integer id) {
@@ -101,14 +101,13 @@ public class UsuarioDAOimpl implements UsuarioDAO{
 		try {
 			Connection connection = ConnectionProvider.getConnection();
 			
-			String sql = "INSERT INTO usuario (nombre,dinero,tiempo,username,password,admin) VALUES (?,?,?,?,?,?)";
+			String sql = "INSERT INTO usuario (nombre,dinero,tiempo,password,admin) VALUES (?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, usuario.getNombre());
 			statement.setDouble(2, usuario.getPresupuesto());
 			statement.setDouble(3, usuario.getTiempo_disponible());
-			statement.setString(4, usuario.getUsername());
-			statement.setString(5, usuario.getPassword());
-			statement.setBoolean(6, usuario.getAdmin());
+			statement.setString(4, usuario.getPassword());
+			statement.setString(5, usuario.getRol());
 			
 			int rows = statement.executeUpdate();
 			return rows;
@@ -126,9 +125,8 @@ public class UsuarioDAOimpl implements UsuarioDAO{
 			statement.setString(1, usuario.getNombre());
 			statement.setDouble(2, usuario.getPresupuesto());
 			statement.setDouble(3, usuario.getTiempo_disponible());
-			statement.setString(4, usuario.getUsername());
-			statement.setString(5, usuario.getPassword());
-			statement.setBoolean(6, usuario.getAdmin());
+			statement.setString(4, usuario.getPassword());
+			statement.setString(5, usuario.getRol());
 			statement.setInt(4, usuario.getId());
 
 			int rows = statement.executeUpdate();

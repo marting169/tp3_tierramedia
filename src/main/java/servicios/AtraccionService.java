@@ -29,7 +29,7 @@ public class AtraccionService {
 		AtraccionDAO attractionDAO = DAOFactory.getAtraccionDAO();
 		Atraccion attraction = attractionDAO.find(id);
 
-		attraction.setNombreAtraccion(nombre);
+		attraction.setNombre(nombre);
 		attraction.setCosto(costo);
 		attraction.setTiempo(duracion);
 		attraction.setCupo(cupo);

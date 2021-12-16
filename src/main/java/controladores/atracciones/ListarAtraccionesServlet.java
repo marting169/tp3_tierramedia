@@ -1,4 +1,3 @@
-
 package controladores.atracciones;
 
 import java.io.IOException;
@@ -28,24 +27,21 @@ public class ListarAtraccionesServlet extends HttpServlet implements Servlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	try {
-		
-	
+		try {
+
 			List<Atraccion> atracciones = atraccionService.list();
 			req.setAttribute("atracciones", atracciones);
 
-			
-			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/atracciones.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/interfazAdmin/atraccionesAdmin.jsp");
 			dispatcher.forward(req, resp);
-	}catch (Exception e){
-		resp.getWriter().append("Error"+e);
-	}
-			
-	}
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doGet(req,resp);
+		} catch (Exception e) {
+			resp.getWriter().append("Error" + e);
+		}
+
 	}
 
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doGet(req, resp);
+	}
 
 }

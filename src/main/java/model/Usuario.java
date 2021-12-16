@@ -13,20 +13,19 @@ public class Usuario {
 	private Double tiempo_disponible;
 	private ArrayList<Producto> itinerario;
 	private ArrayList<Atraccion> soloAtracciones;
-	private String username, password;
-	private Boolean admin;
+	private String password;
+	private String rol;
 	private HashMap<String, String> errors;
 
-	public Usuario(Integer id, String nombre, Double presupuesto, Double tiempo_disponible, String username, String password, 
-			Boolean admin) {
+	public Usuario(Integer id, String nombre, Double presupuesto, Double tiempo_disponible, String password, 
+			String rol) {
 		this.id = id;
 		this.nombre = nombre;
 		this.setPresupuesto(presupuesto);
 		this.setTiempo_disponible(tiempo_disponible);
 		this.soloAtracciones = new ArrayList<Atraccion>();
-		this.username = username;
 		this.password = password;
-		this.admin = admin;
+		this.rol = rol;
 	}
 	
 
@@ -34,17 +33,12 @@ public class Usuario {
 		this.nombre = nombre;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
 
 	public Double getPresupuesto() {
 		return this.presupuesto;
 	}
 	
-	public String getUsername() {
-		return username;
-	}
+
 
 	public Integer getId() {
 		return id;
@@ -100,20 +94,20 @@ public class Usuario {
 		return false;
 	}
 	
-	public Boolean isAdmin() {
-		return admin;
+	public String isRol() {
+		return rol;
 	}
 	
-	public Boolean getAdmin() {
-		return admin;
+	public String getRol() {
+		return rol;
 	}
 	
 	public String getPassword() {
 		return password;
 	}
 	
-	public void setAdmin(Boolean admin) {
-		this.admin = admin;
+	public void setRol(String rol) {
+		this.rol = rol;
 	}
 	
 	public void setPassword(String password) {

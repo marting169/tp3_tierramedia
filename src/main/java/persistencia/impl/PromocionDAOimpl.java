@@ -14,10 +14,11 @@ import model.PromocionPorcentual;
 import persistencia.PromocionDAO;
 import persistencia.commons.ConnectionProvider;
 import persistencia.commons.MissingDataException;
+import servicios.AtraccionService;
 
 public class PromocionDAOimpl implements  PromocionDAO{
-	
-	public List<Promocion> findAll(List<Atraccion> atraccionesDisponibles) {
+	private AtraccionService atraccionService;
+	public List<Promocion> findAll() {
 		
 		try {
 			Connection connection = ConnectionProvider.getConnection();
@@ -26,7 +27,7 @@ public class PromocionDAOimpl implements  PromocionDAO{
 			ResultSet result = statement.executeQuery();
 			ArrayList<Promocion> todos = new ArrayList<Promocion>();
 			while (result.next()) {
-				todos.add(toPromocion(result, atraccionesDisponibles));
+				todos.add(toPromocion(result));
 			}
 			return todos;
 		} catch (Exception e) {
@@ -35,11 +36,13 @@ public class PromocionDAOimpl implements  PromocionDAO{
 		
 	}
 
-	private Promocion toPromocion(ResultSet result, List<Atraccion> atraccionesDisponibles) {
-	
+	private Promocion toPromocion(ResultSet result) {
+		
 		try {
 			double costo = 0;
 			double tiempo = 0;
+			this.atraccionService = new AtraccionService();
+			List<Atraccion> atraccionesDisponibles = atraccionService.list();
 			ArrayList<Atraccion> atraccionesEnPromocion = new ArrayList<Atraccion>();
 			List<Integer> ides = findIdAtraccionByIdPromocion(result.getInt("id"));
 			
@@ -93,11 +96,6 @@ public class PromocionDAOimpl implements  PromocionDAO{
 		return null;
 	}
 
-	@Override
-	public List<Promocion> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public int countAll() {
