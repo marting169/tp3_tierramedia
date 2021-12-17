@@ -7,9 +7,9 @@ public abstract class Producto {
 	protected double tiempo;
 	
 	public Producto(String nombre, double costo, double tiempo) {
-		this.nombre = nombre;
-		this.costo = costo;
-		this.tiempo = tiempo;
+		this.setNombre(nombre);
+		this.setCosto(costo);
+		this.setTiempo(tiempo);
 	}
 	
 

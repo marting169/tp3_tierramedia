@@ -20,6 +20,10 @@ public class DAOFactory {
 	public static PromocionDAO getPromocionDAO() {
 		return new PromocionDAOimpl();
 	}
+	
+	public static PromocionDAO setPromocionDAO() {
+		return new PromocionDAOimpl();
+	}
 
 
 }

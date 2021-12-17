@@ -33,7 +33,7 @@ public class ListarPromocionesServlet extends HttpServlet implements Servlet {
 
 			List<Promocion> promociones = promocionService.list();
 			req.setAttribute("promociones", promociones);
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/interfazAdmin/promocionesAdmin.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/interfazAdmin/promociones/promocionesAdmin.jsp");
 			dispatcher.forward(req, resp);
 		} catch (Exception e) {
 			resp.getWriter().append("Error" + e);

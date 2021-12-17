@@ -32,7 +32,7 @@ public class ListarAtraccionesServlet extends HttpServlet implements Servlet {
 			List<Atraccion> atracciones = atraccionService.list();
 			req.setAttribute("atracciones", atracciones);
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/interfazAdmin/atraccionesAdmin.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/interfazAdmin/atracciones/atraccionesAdmin.jsp");
 			dispatcher.forward(req, resp);
 		} catch (Exception e) {
 			resp.getWriter().append("Error" + e);

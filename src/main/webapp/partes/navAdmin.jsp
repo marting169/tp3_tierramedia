@@ -1,8 +1,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="indexAdmin.jsp">ADMINISTRACION
+	<div class="container-lg">
+		<a class="navbar-brand" href="interfazAdmin/indexAdmin.jsp">ADMINISTRACION
 			TIERRA MEDIA</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			data-bs-target="#navbarText" aria-controls="navbarText"
@@ -25,7 +25,7 @@
 				User</button>
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
 				<li><button class="dropdown-item" type="button">
-						<a class="nav-link" href="logout">Salir</a>
+						<a class="nav-link" href="/logout">Salir</a>
 					</button></li>
 			</ul>
 		</div>

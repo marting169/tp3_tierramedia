@@ -27,4 +27,6 @@ public class PromocionAbsoluta extends Promocion{
 				+ " horas \n-Precio original: " + costo + "\n-Precio con descuento:" + conDescuento+"\n";
 	}
 
+	
+
 }

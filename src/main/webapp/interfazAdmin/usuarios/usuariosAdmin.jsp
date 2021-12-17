@@ -11,16 +11,16 @@
 <body>
 	<jsp:include page="/partes/navAdmin.jsp"></jsp:include>
 
-	<div class="container-fluid">
+	<div class="container-lg shadow-lg p-3 mb-5 bg-body">
 
-	<div class="bg-light p-4 mb-3 rounded">
+	<div class="bg-light p-4 mb-3 rounded shadow">
 			<h1>Administracion de Usuarios</h1>
 		</div>
 
 		
 			<div class="mb-3">
 				<a href="#" class="btn btn-primary"
-					role="button"> <i class="bi bi-plus-lg"></i>+ Crear nuevo Usuario
+					role="button"> <i class="bi bi-plus-lg"></i>Crear nuevo Usuario
 				</a>
 			</div>
 		

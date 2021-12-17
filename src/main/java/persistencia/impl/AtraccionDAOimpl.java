@@ -112,12 +112,12 @@ public class AtraccionDAOimpl implements AtraccionDAO {
 	}
 
 	@Override
-	public int delete(Atraccion attraction) {
+	public int delete(Atraccion atraccion) {
 		try {
-			String sql = "DELETE FROM atraccion WHERE ID = ?";
+			String sql = "DELETE FROM ATRACCION WHERE ID = ?";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setInt(1, attraction.getId());
+			statement.setInt(1, atraccion.getId());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -135,9 +135,23 @@ public class AtraccionDAOimpl implements AtraccionDAO {
 	}
 
 	@Override
-	public int insert(Atraccion t) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int insert(Atraccion atraccion)  {
+		try {
+			String sql = "INSERT INTO ATRACCION (NOMBRE, COSTO, TIEMPO, CUPO) VALUES (?, ?, ?, ?)";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			int i = 1;
+			statement.setString(i++, atraccion.getNombre());
+			statement.setDouble(i++, atraccion.getCosto());
+			statement.setDouble(i++, atraccion.getTiempo());
+			statement.setInt(i++, atraccion.getCupo());
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
 	}
 
 }

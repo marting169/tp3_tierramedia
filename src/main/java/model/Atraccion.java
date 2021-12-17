@@ -17,8 +17,8 @@ public class Atraccion extends Producto {
 	
 	public Atraccion(Integer id, String nombre, Double costo, Double tiempo, Integer cupo) {
 		super(nombre, costo, tiempo);
-		this.cupo = cupo;
-		this.id = id;
+		this.setCupo(cupo);
+		this.setId(id);
 	}
 	
 	

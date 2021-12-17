@@ -12,16 +12,16 @@ public class AtraccionService {
 		return DAOFactory.getAtraccionDAO().findAll();
 	}
 
-	public Atraccion create(String nombre, double costo, double duracion, int cupo) {
+	public Atraccion create(String nombre, double costo, double tiempo, int cupo) {
 
-		Atraccion attraction = new Atraccion(nombre, costo, duracion, cupo);
+		Atraccion atraccion = new Atraccion(nombre, costo, tiempo, cupo);
 
-		if (attraction.isValid()) {
-			AtraccionDAO attractionDAO = DAOFactory.getAtraccionDAO();
-			attractionDAO.insert(attraction);
+		if (atraccion.isValid()) {
+			AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
+			atraccionDAO.insert(atraccion);
 		}
 
-		return attraction;
+		return atraccion;
 	}
 
 	public Atraccion update(int id, String nombre, double costo, double duracion, int cupo) {
@@ -42,10 +42,10 @@ public class AtraccionService {
 	}
 
 	public void delete(int id) {
-		Atraccion attraction = new Atraccion(id, null, null, null, null);
+		Atraccion atraccion = new Atraccion(id, null, 0.0, 0.0, 0);
 
-		AtraccionDAO attractionDAO = DAOFactory.getAtraccionDAO();
-		attractionDAO.delete(attraction);
+		AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
+		atraccionDAO.delete(atraccion);
 	}
 
 	public Atraccion find(Integer id) {

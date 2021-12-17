@@ -1,0 +1,133 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0px;
+	padding:0px;
+	font-family: 'Roboto Condensed', sans-serif;
+	background-color:#a4152c;
+}
+ul{
+	list-style:none;
+	background-color:#a4152c;
+}
+a{
+	text-decoration:none;
+	background-color:#a4152c;
+}
+.menu {
+    margin-left: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: none;
+    background-color:#a4152c;
+    
+
+}
+.menu ul{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+.menu ul li{
+	display: inline-block;
+}
+.menu ul li a{
+	color:black;
+	display:block;
+	padding:20px 20px;
+	text-decoration: none;
+}
+.menu ul li a:hover{
+			
+	transform-style: preserve-3d;
+	transform: scale(1.2);
+	transition: all ease 0.3s;
+		}
+		
+.item-r{
+	float:right;
+}
+.container{
+	width:100%;
+	height: 100vh;
+	background-color:#a4152c;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+.box{
+	width:350px;
+	height:610px;
+	background-color:#1e1e26;
+	border-radius: 10px;
+	box-shadow: 2px 10px 12px rgba(0,0,0,0.5);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+	marginrgb(255, 255, 0), 255, 0)10px;
+}
+.model{
+	height: 350px;
+	max-height: 100%;
+	max-width: 100%;
+	background-color:#a4152c;
+}
+.details{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 300px;
+	
+}
+.details p{
+	font-family: calibri;
+	font-weight: bold;
+	color:#6a6a74;
+	text-align: center;
+	margin-top: 20px;
+	
+}
+.atraccion{
+	color:#32323e;
+	font-weight: bold;
+	letter-spacing: 2px;
+	font-family: bebas kai;
+	font-size: 25px;
+	
+}
+.logo{
+	height: 60px;
+	
+}
+.box:hover{
+	background-color: #17171d;
+	transform-style: preserve-3d;
+	transform: scale(1.02);
+	transition: all ease 0.3s;
+	
+}
+.box:hover .atraccion{
+	color:#c0292b;
+	transition: all ease 0.5s;
+	
+}
+/*--responsive for mobile phone--*/
+@media(max-width:720px){
+	.box{
+		width: 94%;
+		height: 500px;
+		
+	}
+	.model{
+		height:250px;
+		
+	}
+	.details p{
+		font-size: 16px;
+		width: 250px;
+	}
+	
+}

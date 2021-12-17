@@ -3,6 +3,7 @@ package persistencia.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -104,9 +105,25 @@ public class PromocionDAOimpl implements  PromocionDAO{
 	}
 
 	@Override
-	public int insert(Promocion t) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int insert(Promocion promocion) {
+		try {
+			String sql = "INSERT INTO PROMOCIONES (NOMBRE, TIPO, DESCUENTO) VALUES (?, ?, ?)";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+			int i = 1;
+			statement.setString(i++, promocion.getNombre());
+			statement.setString(i++, tipo);
+			statement.setDouble(i++, promocion.getConDescuento());
+			int rows = statement.executeUpdate();
+			ResultSet generatedKeys = statement.getGeneratedKeys();
+			if (generatedKeys.next()) {
+			         int idGenerado = generatedKeys.getInt(1);
+			}
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
 	}
 
 	@Override

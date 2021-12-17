@@ -33,7 +33,7 @@ public class ListarUsuariosServlet extends HttpServlet implements Servlet {
 		req.setAttribute("users", users);
 
 		RequestDispatcher dispatcher = getServletContext()
-				.getRequestDispatcher("/interfazAdmin/usuariosAdmin.jsp");
+				.getRequestDispatcher("/interfazAdmin/usuarios/usuariosAdmin.jsp");
 		dispatcher.forward(req, resp);
 
 	}

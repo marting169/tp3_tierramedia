@@ -1,10 +1,13 @@
 
 package servicios;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import model.Atraccion;
 import model.Promocion;
-//import persistencia.PromocionDAO;
+import model.PromocionAbsoluta;
+import persistencia.PromocionDAO;
 import persistencia.commons.DAOFactory;
 
 public class PromocionService {
@@ -12,17 +15,18 @@ public class PromocionService {
 		return DAOFactory.getPromocionDAO().findAll();
 	}
 
-//	public Promocion create(int id, String name, double cost, double duration, int capacity) {
-//
-//		Promocion attraction = new Promocion(id, name, cost, duration, capacity);
-//
-//		if (attraction.isValid()) {
-//			AtraccionDAO attractionDAO = DAOFactory.getPromocionDAO();
-//			attractionDAO.insert(attraction);
-//		}
-//
-//		return attraction;
-//	}
+	public Promocion create(String name, double cost, String tipo) {
+
+		ArrayList<Atraccion> atracciones;
+		Promocion promocion = new PromocionAbsoluta(null,name, cost, tipo);
+
+		if (promocion.esValida()) {
+			PromocionDAO attractionDAO = DAOFactory.setPromocionDAO();
+			attractionDAO.insert(promocion);
+		}
+
+		return promocion;
+	}
 
 //	public Promocion update(int id, String name, double cost, double duration, int capacity) {
 //
